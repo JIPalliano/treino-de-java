@@ -9,13 +9,13 @@ public class Numero_Romano {
     	Scanner ler = new Scanner(System.in);
     	
     	System.out.println("Digite o número em Romano:");
-        String algarismosRomanos = ler.nextLine();
-        int decimal = converterParaDecimal(algarismosRomanos);
+        String romanos = ler.nextLine();
+        int decimal = converterDecimal(romanos.toUpperCase());
         System.out.println(decimal);
         
     }
 
-    public static int converterParaDecimal(String algarismosRomanos) {
+    public static int converterDecimal(String romanos) {
         Map<Character, Integer> valores = new HashMap<>();
         
         valores.put('I', 1);
@@ -27,23 +27,23 @@ public class Numero_Romano {
         valores.put('M', 1000);
 
         int decimal = 0;
-        int tamanho = algarismosRomanos.length();
+        int tamanho = romanos.length();
         int i = 0;
 
         while (i < tamanho) {
-            int valorAtual = valores.get(algarismosRomanos.charAt(i));
+            int valor = valores.get(romanos.charAt(i));
 
             if (i + 1 < tamanho) {
-                int valorProximo = valores.get(algarismosRomanos.charAt(i + 1));
-                if (valorAtual >= valorProximo) {
-                    decimal += valorAtual;
+                int proximo = valores.get(romanos.charAt(i + 1));
+                if (valor >= proximo) {
+                    decimal += valor;
                     i++;
                 } else {
-                    decimal += valorProximo - valorAtual;
+                    decimal += proximo - valor;
                     i += 2;
                 }
             } else {
-                decimal += valorAtual;
+                decimal += valor;
                 i++;
             }
         }

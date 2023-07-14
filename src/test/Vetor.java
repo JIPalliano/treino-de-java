@@ -1,4 +1,5 @@
 package test;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Vetor {
@@ -18,47 +19,38 @@ public class Vetor {
 		Scanner ler = new Scanner(System.in);
 		System.out.println("1 = sim e 2 = não");
 		int op = 0;
-		int contadorA = 0;
-        int contadorB = 0;
-        int[] A;
-        int[] B;
+        int numeroA = 0;
+        int numeroB = 0;
+        int[] A = new int [5];
+        int[] B = new int [2];
 
         do {
-            System.out.println("Digite o valor que deseja acrescentar:");
-            int numeroA = ler.nextInt();
-            A[contadorA] = numeroA;
-            contadorA++;
+            System.out.println("Digite o valor que deseja acrescentar no Array A:");
+            numeroA = ler.nextInt();
+
 
             System.out.println("Deseja continuar? (1 = sim, 2 = não)");
             op = ler.nextInt();
         } while (op != 2);
 
+
         do {
-            System.out.println("Digite o valor que deseja acrescentar:");
-            int numeroB = ler.nextInt();
-            B[contadorB] = numeroB;
-            contadorB++;
+            System.out.println("Digite o valor que deseja acrescentar no Array B:");
+            numeroB = ler.nextInt();
 
             System.out.println("Deseja continuar? (1 = sim, 2 = não)");
             op = ler.nextInt();
         } while (op != 2);
-
-        int[] A = new int[contadorA];
-        int[] B = new int[contadorB];
-
-        for (int i = 0; i < contadorA; i++) {
-            A[i] = numeroA[i];
-        }
-
-        for (int j = 0; j < contadorB; j++) {
-            B[j] = numeroB[j];
-        }
         
-        //System.out.println(Arrays.toString(A));
-        //System.out.println(Arrays.toString(B));
-        
+        for(int i=0;i<A.length;i++) {
+        	A[i] = numeroA;
+        }
+        for(int j=0;j<B.length;j++) {
+        	B[j] = numeroB;
+        }
         boolean[] C = compareArrays(A, B);
-        
+        System.out.println(Arrays.toString(A)+" - "+Arrays.toString(B));
+
         System.out.print("C: ");
         for (boolean value : C) {
             System.out.print(value + " ");
