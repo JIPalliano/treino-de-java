@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Vetor {
 	
 	public static boolean[] compareArrays(int[] A, int[] B) {
-        int minLength = Math.min(A.length, B.length);
-        boolean[] C = new boolean[minLength];
+        int valores = Math.min(A.length, B.length);
+        boolean[] C = new boolean[valores];
         
-        for (int i = 0; i < minLength; i++) {
+        for (int i = 0; i < valores; i++) {
             C[i] = A[i] == B[i];
         }
         
@@ -18,37 +18,32 @@ public class Vetor {
 	public static void main(String[] args) {
 		Scanner ler = new Scanner(System.in);
 		System.out.println("1 = sim e 2 = não");
-		int op = 0;
         int numeroA = 0;
         int numeroB = 0;
-        int[] A = new int [5];
-        int[] B = new int [2];
-
-        do {
-            System.out.println("Digite o valor que deseja acrescentar no Array A:");
-            numeroA = ler.nextInt();
-
-
-            System.out.println("Deseja continuar? (1 = sim, 2 = não)");
-            op = ler.nextInt();
-        } while (op != 2);
-
-
-        do {
-            System.out.println("Digite o valor que deseja acrescentar no Array B:");
-            numeroB = ler.nextInt();
-
-            System.out.println("Deseja continuar? (1 = sim, 2 = não)");
-            op = ler.nextInt();
-        } while (op != 2);
+        
+        System.out.println("Quantas posições o Array 'A' vai conter? ");
+        int posicoesA = ler.nextInt();
+        int[] A = new int [posicoesA];
+        
+        System.out.println("Quantas posições o Array 'B' vai conter? ");
+        int posicoesB = ler.nextInt();
+        int[] B = new int [posicoesB];
         
         for(int i=0;i<A.length;i++) {
-        	A[i] = numeroA;
+            System.out.println("Digite o valor que deseja acrescentar no Array A:");
+            numeroA = ler.nextInt();
+            A[i] = numeroA;
         }
-        for(int j=0;j<B.length;j++) {
-        	B[j] = numeroB;
+        
+
+        for(int j=0;j<B.length;j++){
+            System.out.println("Digite o valor que deseja acrescentar no Array B:");
+            numeroB = ler.nextInt();
+            B[j] = numeroB;
         }
+  
         boolean[] C = compareArrays(A, B);
+        System.out.println("Esses são seus valores");
         System.out.println(Arrays.toString(A)+" - "+Arrays.toString(B));
 
         System.out.print("C: ");
