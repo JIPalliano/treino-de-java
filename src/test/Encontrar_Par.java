@@ -10,9 +10,9 @@ public class Encontrar_Par {
 		Scanner ler = new Scanner(System.in);
         ArrayList<Integer> numeros = new ArrayList<>();
         System.out.println("Digite a quantidade de números que deseja inserir:");
-        int quant = ler.nextInt();
+        int quantidade = ler.nextInt();
         
-        for(int i=0;i<quant;i++){
+        for(int i=0;i<quantidade;i++){
             System.out.println("Digite o numero:");
             int n = ler.nextInt();
             numeros.add(n);
